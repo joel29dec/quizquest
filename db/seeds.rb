@@ -44,20 +44,27 @@ def create_category(result)
 end
 
 def remove_quote
-  Category.all.each {|category|
-    category.update(name: category.name.gsub(/&quot;/,'"'))
-    category.update(name: category.name.gsub(/&#039;/,"'"))
-  }
 
   Question.all.each {|question|
-    question.update(prompt: question.prompt.gsub(/&quot;/,'"'))
-    question.update(correct_answer: question.correct_answer.gsub(/&#039;/,"'"))
-    question.update(incorrect_answers: question.incorrect_answers.gsub(/&quot;/,'"'))
-    question.update(incorrect_answers: question.incorrect_answers.gsub(/&#039;/,"'"))
-    })
+    @prompt = question.prompt.gsub(/&quot;/,'"')
+    @prompt2 = question.prompt.gsub(/&#039;/,"'")
+    question.update(prompt: @prompt)
+    question.update(prompt: @prompt2)
+
+    @correct_answer = question.correct_answer.gsub(/&quot;/,'"')
+    @correct_answer = question.correct_answer.gsub(/&#039;/,"'")
+    question.update(correct_answer: @correct_answer )
+    question.update(correct_answer: @correct_answer2 )
+
+
+    @incorrect_answers = question.incorrect_answers.gsub(/&quot;/,'"')
+    @incorrect_answers2 = question.incorrect_answers.gsub(/&#039;/,"'")
+    question.update(incorrect_answers: @incorrect_answers)
+    question.update(incorrect_answers: @incorrect_answers2)
+
   }
 end
 
 # JSON.parse(data.replace(/&quot;/g,'"'));
-# initial_parse
+initial_parse
 remove_quote
