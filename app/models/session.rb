@@ -1,9 +1,9 @@
 class Session < ApplicationRecord
-    belongs_to :user
+    belongs_to :user	    
 
-    def show
-        # @session = Session.find_by(id: params[:id])
-        @session = User.find_by(username: params[:username])
-    end
-end
 
+    def category_id
+        @category = Category.find_by(id: params[:id])
+    
+    end	    
+end	
