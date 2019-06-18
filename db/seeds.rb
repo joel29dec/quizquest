@@ -31,7 +31,7 @@ def create_questions(results)
   results.each {|result|
     create_category(result)
     new_question = Question.new
-    new_question.category_id = Category.find_by(name: result[:category]).id
+    new_question.category_id = Category.find_or_create_by(name: result[:category]).id
     new_question.prompt = result["question"]
     new_question.correct_answer = result["correct_answer"]
     new_question.incorrect_answers = result["incorrect_answers"]
@@ -43,5 +43,21 @@ def create_category(result)
   Category.find_or_create_by(name: result["category"])
 end
 
+def remove_quote
+  Category.all.each {|category|
+    category.update(name: category.name.gsub(/&quot;/,'"'))
+  }
+  Category.all.each {|category|
+    category.update(name: category.name.gsub(/&#039;/,"'"))
+  }
+  Question.all.each {|question|
+    question.update(prompt: question.prompt.gsub(/&quot;/,'"'))
+  }
+  Question.all.each {|question|
+    question.update(prompt: question.prompt.gsub(/&#039;/,"'"))
+  }
+end
 
-initial_parse
+# JSON.parse(data.replace(/&quot;/g,'"'));
+# initial_parse
+remove_quote
