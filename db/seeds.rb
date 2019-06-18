@@ -46,15 +46,15 @@ end
 def remove_quote
   Category.all.each {|category|
     category.update(name: category.name.gsub(/&quot;/,'"'))
-  }
-  Category.all.each {|category|
     category.update(name: category.name.gsub(/&#039;/,"'"))
   }
+
   Question.all.each {|question|
     question.update(prompt: question.prompt.gsub(/&quot;/,'"'))
-  }
-  Question.all.each {|question|
-    question.update(prompt: question.prompt.gsub(/&#039;/,"'"))
+    question.update(correct_answer: question.correct_answer.gsub(/&#039;/,"'"))
+    question.update(incorrect_answers: question.incorrect_answers.gsub(/&quot;/,'"'))
+    question.update(incorrect_answers: question.incorrect_answers.gsub(/&#039;/,"'"))
+    })
   }
 end
 
