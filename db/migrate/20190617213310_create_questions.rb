@@ -6,6 +6,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.string :correct_answer
       t.integer :category_id
 
+
       t.timestamps
     end
   end
