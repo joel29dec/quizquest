@@ -3,12 +3,22 @@ class GamesController < ApplicationController
         @games = Game.all
     end
 
-     def show	    	        @game = Game.find_by(id: params[:id])
+    def show
+        @game = Game.find_by(id: params[:game_id])
+        @category = @game.category
+        #@question = @category.questions[1]
+        # @game = Game.find_by(id: params[:game_id])
+        # @category = Category.find_by(id: params[:category_id])
+        # @user = User.find_by(id: params[:user_id])
+        # @question = Question.find_by
+        # #@question = Question.find_by(id: params[:category_id].first) #change this out to a random place
+        # p @question.prompt
     end
 
-     def new
+    def new
         Game.new
     end
+
     def create
         # @category = Category.find_by(id: params[:category_id]).questions
         p params

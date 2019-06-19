@@ -3,6 +3,18 @@ class Question < ApplicationRecord
     has_many :game_questions
     has_many :games, through: :game_questions
 
+    def initialize(question_index = 0)
+        
+    end
+
+    def shuffle_answers
+        temp = self.incorrect_answers
+        temp.match?(/[A-Z]/i).scan(/\w+/)
+        puts "=====================#{updated_at}========================="
+        p temp
+        p temp.class
+        return temp
+    end
     # attr_accessor :category_id, :prompt, :correct_answer, :incorrect_answers
 
     # def initialize(question_params)
