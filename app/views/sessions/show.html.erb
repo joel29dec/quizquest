@@ -7,14 +7,35 @@ Logout button; destroy session and redirect to session/index
  -->
 
 <h1>Quiz Quest</h1>
-<%= form_for @session do |f|%>
-    <%= collection_select :category, :category_id, Category.all, :id, :name %><br>
-<%= f.submit%>
 
- <% end %>
+<%= button_to "Logout", '/sessions' %>
+
+<!-- Solo Game -->
+  <%# 1. collection_select %>
+    <%# 2. submit the category %>
+  <%= form_for @session do |f|%>
+      <%= collection_select :category, :category_id, Category.all, :id, :name %><br>
+  <%= f.submit%>
+   <% end %>
+
+  <%#  3. redirect_to games/:id with the submitted category%>
+
+
+
+
+
+
+
+
+
+
+
  <%= form_tag games_path do %>
   <label>Solo Game:</label><br>
     <%= collection_select :category, :category_id, Category.all, :id, :name %><br>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="submit" value="Submit Post">
-<% end %> 
+<% end %>
+
+
+<%# Create game %>
