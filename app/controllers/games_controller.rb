@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 
      def show
        @game = Game.find_by(id: params[:id])
+       @category
     end
 
      def new
@@ -16,10 +17,18 @@ class GamesController < ApplicationController
     def create
         # @category = Category.find_by(id: params[:category_id]).questions
         p params
-        @questions = Question.find_by(category_id: params[:category_id])
-         @game = Game.create
-         redirect_to game_path(@game.id)
+        
+        if params["Create"] == "Start Game"
+          @questions = Question.find_by(category_id: params[:category_id])
+          @game = Game.create
+          redirect_to game_path(@game.id)
+        elsif params["Create"] == "Create Game"
+          redirect_to new_game_path
+        end
+
     end
+
+
 
 
 
