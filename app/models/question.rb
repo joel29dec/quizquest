@@ -17,16 +17,16 @@ class Question < ApplicationRecord
     #   params.permit(:category, :question, :correct_answer, :incorrect_answers)
     # end
 
-    def initialize(question_index = 0)
+    # def initialize(question_index = 0)
 
-    end
+    # end
 
-    def shuffle_answers
-       temp = self.incorrect_answers
-       temp.match?(/[A-Z]/i).scan(/\w+/)
-       puts "=====================#{updated_at}========================="
-       p temp
-       p temp.class
-       return temp
-   end
+#     def shuffle_answers
+#        temp = self.incorrect_answers
+#        temp.match?(/[A-Z]/i).scan(/\w+/)
+#        puts "=====================#{updated_at}========================="
+#        p temp
+#        p temp.class
+#        return temp
+#    end
 end

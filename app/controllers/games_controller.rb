@@ -7,7 +7,6 @@ class GamesController < ApplicationController
 
      def show
        @game = Game.find_by(id: params[:id])
-       @category
     end
 
     def lobby
@@ -21,11 +20,12 @@ class GamesController < ApplicationController
 
     def create
         # @category = Category.find_by(id: params[:category_id]).questions
-        p params
+        
         
         if params["Create"] == "Start Game"
           @questions = Question.find_by(category_id: params[:category_id])
-          @game = Game.create
+          @game = Game.create(user_id: session[:user_id], category_id: params[:category_id])
+          byebug
           redirect_to game_path(@game.id)
         elsif params["Create"] == "Create Game"
           redirect_to new_game_path

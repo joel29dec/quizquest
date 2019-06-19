@@ -12,20 +12,13 @@ require 'rest-client'
 
 def initial_parse
   count = 1
-  while count <= 5 do
+  while count <= 10 do
     trivia = RestClient.get("https://opentdb.com/api.php?amount=50")
     results = JSON.parse(trivia)['results']
     create_questions(results)
     count += 1
   end
-end
-
-# def create_questions(results)
-#   results.each {|result|
-#     create_category(result)
-#     Question.find_or_create_by(result)
-#   }
-# end
+end   
 
 def create_questions(results)
   results.each {|result|

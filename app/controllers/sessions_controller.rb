@@ -24,7 +24,9 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             #so we don't know if this will work yet
             redirect_to lobby_path(:username => user.username)
-        end
+        # else
+        #   @errors = user.errors.full_messages
+        end    
       end
     end
 
