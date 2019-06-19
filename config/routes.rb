@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, param: :username, only: [:index, :show, :new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   get '/games/:id/' , to: 'games#show'
-  get '/games/:username/lobby', to: 'games#lobby'
+  get '/games/:username/lobby', to: 'games#lobby', as: 'lobby'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

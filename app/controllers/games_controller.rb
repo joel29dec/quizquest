@@ -10,6 +10,11 @@ class GamesController < ApplicationController
        @category
     end
 
+    def lobby
+        #p params
+        @username = params[:username]
+    end
+
      def new
         Game.new
     end

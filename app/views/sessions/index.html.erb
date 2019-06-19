@@ -8,9 +8,16 @@
   <% end %>
 <% end %>
 
+<h3>Login</h3>
 <%= form_tag sessions_path do %>
   Username <%= text_field_tag :username %>
   Password <%= password_field_tag :password %>
-  <%= submit_tag "Log In" %>
+  <input type="submit" value="login" name="authenticate">
 <% end %>
 
+<h3>Sign Up</h3>
+<%= form_tag sessions_path do %>
+  Username <%= text_field_tag :username %>
+  Password <%= password_field_tag :password %>
+  <input type="submit" value="signup" name="authenticate">
+<% end %>
