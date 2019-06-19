@@ -12,11 +12,13 @@ require 'rest-client'
 
 def initial_parse
   count = 1
-  while count <= 10 do
-    trivia = RestClient.get("https://opentdb.com/api.php?amount=50")
+  category_counter = 1
+  while count <= 22 do
+    trivia = RestClient.get("https://opentdb.com/api.php?amount=50&category=#{category_counter}")
     results = JSON.parse(trivia)['results']
     create_questions(results)
     count += 1
+    category_counter += 1
   end
 end   
 
