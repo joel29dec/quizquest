@@ -52,7 +52,7 @@ def remove_quote
     question.update(prompt: @prompt2)
 
     @correct_answer = question.correct_answer.gsub(/&quot;/,'"')
-    @correct_answer = question.correct_answer.gsub(/&#039;/,"'")
+    @correct_answer2 = question.correct_answer.gsub(/&#039;/,"'")
     question.update(correct_answer: @correct_answer )
     question.update(correct_answer: @correct_answer2 )
 
