@@ -6,11 +6,12 @@ class GamesController < ApplicationController
 
 
     def show
-      @questions = Question.all
       @game = Game.find_by(id: params[:id])
-      @category = Category.find_by(id: params[:id])
+      @category = Category.find_by(id: @game.category_id)
       @current_user = User.find_by(id: session[:user_id])
-      @selected_category = @game.create_solo_game(params)
+      @questions = Question.all.select {|q| q.category_id == @category.id}
+      @game_questions = @questions.sample(10)
+      # @selected_category = @game.create_solo_game(params)
     end
 
     def lobby
@@ -25,9 +26,10 @@ class GamesController < ApplicationController
     def create
 
       if params["Create"] == "Start Game"
-        # @questions = Question.select {|q| q.category_id == params[:category][:category_id].to_i}
-        @questions = Question.first
-        @game = Game.create(user_id: session[:user_id], category_id: game_params)
+        @category = Category.find_by(id: params[:category][:category_id].to_i)
+        @questions = Question.all.select {|q| q.category_id == @category.id}
+        @game = Game.create(user_id: session[:user_id], category_id: @category.id)
+        # byebug
         redirect_to game_path(@game.id)
       elsif params["Create"] == "Create Game"
         redirect_to new_game_path

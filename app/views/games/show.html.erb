@@ -7,7 +7,7 @@
 <h3>Score: <%= @current_user.score %>
 <br>
 <%= form_tag users_path do %>
-  <% @questions.each do |q| %>
+  <% @game_questions.each do |q| %>
     <p><%= q.prompt %></p>
     <% q.answers.each do |answer| %>
       <input type="radio" name="<%= answer %>" value="<%= answer %>"><%= answer %>
