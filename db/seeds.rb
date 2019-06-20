@@ -20,7 +20,7 @@ def initial_parse
     count += 1
     category_counter += 1
   end
-end   
+end
 
 def create_questions(results)
   results.each {|result|
@@ -61,5 +61,23 @@ def remove_quote
 end
 
 # JSON.parse(data.replace(/&quot;/g,'"'));
-initial_parse
-remove_quote
+# initial_parse
+# remove_quote
+
+c1 = Category.create(name: "Bible Trivia")
+Category.create(name: "More Bible Trivia")
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+Question.create(category_id: 2, prompt: "What is the last book of the New Testament?", correct_answer: "Revelations", incorrect_answers: ["Genesis", "Leviticus", "Numbers"])

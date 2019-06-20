@@ -7,8 +7,8 @@ class Game < ApplicationRecord
     # belongs_to :category
 
     def create_solo_game(params)
-      @category = Category.find_by(id: params[:id])
-      @questions = Question.select {|q| q.category_id == @category.id}
+      @category = Category.find_by(id: params[:id].to_i)
+      @questions = Question.all.select {|q| q.category_id == @category.id}
       @questions.sample(10)
     end
 

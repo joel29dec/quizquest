@@ -11,6 +11,6 @@ class Question < ApplicationRecord
       @answer_choices << answer
     }
     @answer_choices.push(self.correct_answer)
-    @answer_choices
+    @answer_choices.map {|a| a.scan(/[0-9a-zA-Z ]/).join('')}
   end
 end
