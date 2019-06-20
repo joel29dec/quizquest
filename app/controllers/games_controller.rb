@@ -23,8 +23,7 @@ class GamesController < ApplicationController
 
       if params["Create"] == "Start Game"
         @questions = Question.find_by(category_id: params[:category_id])
-        category_id = game_params
-        @game = Game.create(user_id: session[:user_id], category_id: 9)
+        @game = Game.create(user_id: session[:user_id], category_id: game_params)
         redirect_to game_path(@game.id)
       elsif params["Create"] == "Create Game"
         redirect_to new_game_path
