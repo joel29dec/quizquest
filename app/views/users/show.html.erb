@@ -1,6 +1,8 @@
 <h3>logged on as <%= @current_user.try(:username) %></h3>
 
+
 <% if logged_in? %>
+  <%= button_to "Games", "/games", method: :get %>
   <%= button_to "Logout", "/byebye", method: :delete %>
 <% else %>
   <%= button_to "Login", "/login", method: :get %>
