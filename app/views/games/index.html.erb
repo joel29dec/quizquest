@@ -1,4 +1,5 @@
-<h1>QuizQuest</h1>
+
+<img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
 
 <% if @errors %>
 <ul>
@@ -8,30 +9,31 @@
 </ul>
 <% end %>
 
-<%= button_to "Logout", "/byebye", method: :delete %>
+
 
 <h2>Your current score is <%= @current_user.score %></h2>
 <!-- Solo Game -->
-  <%# 1. collection_select %>
-    <%# 2. submit the category %>
+  <%# 1. collection_select %> <br>
+    <%# 2. submit the category %> <br>
 
     <%= form_tag games_path do %>
-     <label>Solo Game:</label><br>
-       <%= collection_select :category, :category_id, Category.all, :id, :name %><br>
-     <input type="submit" value="Start Game" name="Create">
+     <label> Solo Game:</label><br>
+       <%= collection_select :category, :category_id, Category.all, :id, :name %>
+     <input type="submit" value="Start Game" name="Create"> <br>
    <% end %>
 
   <%#  3. redirect_to games/:id with the submitted category%>
 
-
+<br>
  <%= form_tag games_path do %>
   <label>Create Game:</label><br>
-    <%= collection_select :category, :category_id, Category.all, :id, :name %><br>
-  <input type="submit" value="Create Game" name="Create">
+    <%= collection_select :category, :category_id, Category.all, :id, :name %>
+  <input type="submit" value="Create Game" name="Create"> <br>
 <% end %>
 
 
 
 
 
-<%# Create game %>
+<%# Create game %> <br> <br>
+<%= button_to "Logout", "/byebye", method: :delete %>

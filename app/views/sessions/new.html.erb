@@ -1,12 +1,11 @@
-<h1>QuizQuest</h1>
-
+<img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
 <% if @errors %>
   <% @errors.each do |error| %>
     <p><%= error %></p>
   <% end %>
 <% end %>
 
-<h1>Welcome Back!</h1>
+<h2>Welcome Back!</h2>
 <% if @errors %>
 <ul>
   <% @errors.each do |error| %>
@@ -16,9 +15,9 @@
 <% end %>
 
 <%= form_tag sessions_path do %>
-  Username <%= text_field_tag :username %>
-  Password <%= password_field_tag :password %>
-  <%= submit_tag "Log In" %>
+  Username <%= text_field_tag :username %> <br>
+  Password <%= password_field_tag :password %> <br>
+  <%= submit_tag "Log In" %> <br> <br>
 <% end %>
 
 <%= link_to "Create an account", new_user_path %>

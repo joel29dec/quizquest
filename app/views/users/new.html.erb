@@ -1,3 +1,4 @@
+<img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
 <% if @errors %>
 <ul>
   <% @errors.each do |error| %>
@@ -9,13 +10,13 @@
 <h3>Sign up for a QQ account</h3>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.label :username %> 
+  <%= f.text_field :username %> <br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password %> <br>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create an Account" %>
+  <%= f.password_field :password_confirmation %> <br>
+  <%= f.submit "Create an Account" %> <br> <br>
 <% end %>
 
 <%= link_to "Log in", login_path %>

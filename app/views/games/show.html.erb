@@ -1,4 +1,4 @@
-<h1>Quiz Quest </h1>
+<img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
 <h2>Category: <%= @category.name %></h2>
 <h2><%= @current_user.username %></h2>
 <h3>Score: <%= @current_user.score %>
@@ -11,7 +11,7 @@
       <input type="radio" name="<%= answer %>" value="<%= answer %>"><%= answer %>
     <% end %>
   <% end %>
-  <input type="submit" value="Submit" name="Submit">
+  <input type="submit" value="Submit" name="Submit"> <br>
 <% end %>
 
 <%= button_to "Quit Game", "/games", method: :get %>
