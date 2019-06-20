@@ -7,8 +7,5 @@ class Question < ApplicationRecord
     @answer_choices = self.incorrect_answers.scan(/\b[a-zA-Z0-9]+[ ]?[a-zA-Z]*[ ]?[a-zA-Z]*[ ]?[a-zA-Z]*[ ]?[a-zA-Z]*[ ]?[a-zA-Z]*/)
     @answer_choices.push(self.correct_answer).shuffle
   end
-
-  def is_correct?(params)
-
-  end
+  
 end
