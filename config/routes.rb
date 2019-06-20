@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get '/games/:id/' , to: 'games#show'
 
   resources :games, only: [:index, :new, :create, :show]
-  # get '/game', to: 'games#lobby', as: 'lobby'
+  # get '/games', to: 'games#lobby', as: 'lobby'
 
   resources :sessions, only: [:new, :create]
   resources :users, param: :username, only: [:new, :create, :show]

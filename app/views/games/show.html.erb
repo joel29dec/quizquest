@@ -8,8 +8,9 @@
 <br>
 
 <% @questions.sample(10).each do |q| %>
-  <%= q.prompt %><br
-  <%= q.answers %>
+  <%= q.prompt %><br>
+  <p>Answer Choices:</p>
+  <%= q.answers %><br>
 <% end %>
 
 

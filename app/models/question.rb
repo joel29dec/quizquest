@@ -6,7 +6,7 @@ class Question < ApplicationRecord
   def answers
     @answer_choices = []
     temp = self.incorrect_answers
-    temp.match(/[A-Z]/i).scan(/\w+/)
+
     temp.split.each { |answer|
       @answer_choices << answer
     }
