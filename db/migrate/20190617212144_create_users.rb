@@ -3,9 +3,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :username
       t.string :password_digest
-      t.integer :wins
+      t.integer :question_asked
       t.integer :score
-      
+
       t.timestamps
     end
   end
