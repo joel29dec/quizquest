@@ -1,7 +1,16 @@
 <h1>QuizQuest</h1>
 
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= button_to "Logout", "/byebye", method: :delete %>
 
+<h2>Your current score is <%= @current_user.score %></h2>
 <!-- Solo Game -->
   <%# 1. collection_select %>
     <%# 2. submit the category %>

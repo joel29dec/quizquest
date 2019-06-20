@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.score = 0
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
@@ -20,10 +21,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @current_user = User.find_by(id: session[:user_id])
-
-    # if @current_user.id != @user.id
-    #   redirect_to user_path(@current_user)
-    # end
   end
 
   private

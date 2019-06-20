@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :users, param: :username, only: [:new, :create, :show]
   get "/login", to: "sessions#new", as: :login
   delete "/byebye", to: "sessions#destroy", as: :logout
-
+  post '/user_responses', to: 'games#user_responses', as: :user_responses
+  get "/lose", to: 'games#lose'
 end

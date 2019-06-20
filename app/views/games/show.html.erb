@@ -1,18 +1,17 @@
-<!-- displays a question, display answers(4 options / TrueFalse), hit one of answers, redirect to next question until game end, then redirect to games/:id/result-->
-
-
 <h1>Quiz Quest </h1>
 <h2>Category: <%= @category.name %></h2>
 <h2><%= @current_user.username %></h2>
 <h3>Score: <%= @current_user.score %>
 <br>
-
-<% @questions.sample(10).each do |q| %>
-  <%= q.prompt %><br>
-  <p>Answer Choices:</p>
-  <%= q.answers %><br>
+<%# this form needs to go to a controller route for posting the game %>
+<%= form_tag user_responses_path, method: "post" do %>
+  <% @game_questions.each do |q| %>
+    <p><%= q.prompt %></p>
+    <% q.answers.each do |answer| %>
+      <input type="radio" name="<%= answer %>" value="<%= answer %>"><%= answer %>
+    <% end %>
+  <% end %>
+  <input type="submit" value="Submit" name="Submit">
 <% end %>
-
-
 
 <%= button_to "Quit Game", "/games", method: :get %>
