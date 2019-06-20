@@ -5,80 +5,39 @@ class GamesController < ApplicationController
     end
 
 
-     def show
+    def show
+      @questions = Question.all
        @game = Game.find_by(id: params[:id])
+       @category = Category.find_by(id: params[:id])
+       @current_user = User.find_by(id: session[:user_id])
+       @selected_category = @game.create_solo_game(game_params)
     end
 
     def lobby
-        #p params
-        @username = params[:username]
+      @username = params[:username]
     end
 
-     def new
-        Game.new
+    def new
+      @questions = Question.all
+      Game.new
     end
 
     def create
-        # @category = Category.find_by(id: params[:category_id]).questions
-        
-        
-        if params["Create"] == "Start Game"
-          @questions = Question.find_by(category_id: params[:category_id])
-          @game = Game.create(user_id: session[:user_id], category_id: params[:category_id])
-          byebug
-          redirect_to game_path(@game.id)
-        elsif params["Create"] == "Create Game"
-          redirect_to new_game_path
-        end
+
+      if params["Create"] == "Start Game"
+        @questions = Question.select {|q| q.category_id == params[:category][:category_id].to_i}
+        byebug
+        @game = Game.create(user_id: session[:user_id], category_id: game_params)
+        redirect_to game_path(@game.id)
+      elsif params["Create"] == "Create Game"
+        redirect_to new_game_path
+      end
 
     end
-
-
-
-
-
-
 
      private
 
-
-
      def game_params
-        params.require(:category).require(:category_id)
-        # params.require(:game).require(:game_id, :game_key)
+        params.require(:category).permit(:category_id)
     end
 end
-
-
-
-
-
-
-
-
-
-
-#   def show
-#         @game = Game.find_by(id: params[:game_id])
-#         @category = @game.category
-#         #@question = @category.questions[1]
-#         # @game = Game.find_by(id: params[:game_id])
-#         # @category = Category.find_by(id: params[:category_id])
-#         # @user = User.find_by(id: params[:user_id])
-#         # @question = Question.find_by
-#         # #@question = Question.find_by(id: params[:category_id].first) #change this out to a random place
-#         # p @question.prompt
-#     end	   
-#      def new
-#         Game.new
-#     end
-#     def create 
-#           @category = Category.find_by(id: params[:category][:category_id].to_i)
-#          p "*******************************"
-#          p @category.questions
-#          p
-#         # @category_questions = @category.questions
-#         p "*******************************"
-#         # p params
-#         #  p @ca÷stions = Question.find_by(category_id: params[:category_id])
-#         # p @questions
