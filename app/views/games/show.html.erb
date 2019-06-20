@@ -7,4 +7,11 @@
 <h3>Score: <%= @current_user.score %>
 <br>
 
- <%= form_tag '/' %>
+<% @questions.sample(10).each do |q| %>
+  <%= q.prompt %><br
+  <%= q.answers %>
+<% end %>
+
+
+
+<%= button_to "Quit Game", "/games", method: :get %>

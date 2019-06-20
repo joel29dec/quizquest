@@ -6,9 +6,11 @@ class GamesController < ApplicationController
 
 
     def show
+      @questions = Question.all
        @game = Game.find_by(id: params[:id])
        @category = Category.find_by(id: params[:id])
        @current_user = User.find_by(id: session[:user_id])
+       @selected_category = @game.create_solo_game(params)
     end
 
     def lobby
@@ -16,6 +18,7 @@ class GamesController < ApplicationController
     end
 
     def new
+      @questions = Question.all
       Game.new
     end
 
