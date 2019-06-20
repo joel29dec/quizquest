@@ -65,8 +65,8 @@ end
 # remove_quote
 
 c1 = Category.create(name: "Bible Trivia")
-Category.create(name: "More Bible Trivia")
-Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
+# Category.create(name: "More Bible Trivia")
+# Question.create(category_id: 1, prompt: "What is the first book of the Old Testament?", correct_answer: "Genesis", incorrect_answers: ["Exodus", "Leviticus", "Numbers"])
 # Question.create(category_id: 1, prompt: "How many books are there in the standard Bible?", correct_answer: "66", incorrect_answers: ["39", "54", "72"])
 # Question.create(category_id: 1, prompt: "At the time of the census which was conducted by Moses in the first chapter of Numbers, which of the twelve tribes of Israel was the largest?", correct_answer: "Judah", incorrect_answers: ["Gad", "Asher", "Ruben"])
 # Question.create(category_id: 1, prompt: "Which of the following animals were the Israelites forbidden to eat by the Old Testament?", correct_answer: "Rabbit", incorrect_answers: ["Antelope", "Sheep", "Goat"])
@@ -76,5 +76,5 @@ Question.create(category_id: 1, prompt: "What is the first book of the Old Testa
 # Question.create(category_id: 1, prompt: "Who did Peter raise from the dead in Joppa?", correct_answer: "Dorcas", incorrect_answers: ["Lazarus", "Ananias", "Martha"])
 # Question.create(category_id: 1, prompt: "What two men in the Bible never died?", correct_answer: "Enoch & Elijah", incorrect_answers: ["Paul & Noah", "Jesus & Lazarus", "Methiselah & Elisha"])
 # Question.create(category_id: 1, prompt: "Who built the first city?", correct_answer: "Cain", incorrect_answers: ["Enoch", "Abraham", "Adam"])
-# Question.create(category_id: 1, prompt: "How many times did Noah send out a dove from the ark?", correct_answer: "1 Time", incorrect_answers: ["2 Times", "3 Times", "he Never Sent A Dove"])
+Question.create(category_id: 1, prompt: "How many times did Noah send out a dove from the ark?", correct_answer: "1 Time", incorrect_answers: ["2 Times", "3 Times", "He Never Sent A Dove"])
 # Question.create(category_id: 1, prompt: "Which of the following countries is only bordered by one country?", correct_answer: "Lesotho", incorrect_answers: ["El Salvador", "Togo", "Mongolia"])
