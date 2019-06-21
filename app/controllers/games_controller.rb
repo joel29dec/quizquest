@@ -10,7 +10,7 @@ class GamesController < ApplicationController
       @game = Game.find_by(id: params[:id])
       @category = Category.find_by(id: @game.category_id)
       @current_user = User.find_by(id: session[:user_id])
-      @questions = Question.all.select {|q| q.category_id == @category.id}
+      @questions = Question.all.select {|q| q.category_id == @category.id.to_i}
       @game_questions = @questions.sample(1)
       @current_user.question_asked = @game_questions[0].id.to_i
       @current_user.save
@@ -45,22 +45,14 @@ class GamesController < ApplicationController
     end
 
     def create
-
       if params["Create"] == "Start Game"
         @category = Category.find_by(id: params[:category][:category_id].to_i)
         @questions = Question.all.select {|q| q.category_id == @category.id}
         @game = Game.create(user_id: session[:user_id], category_id: @category.id)
-        # byebug
         redirect_to game_path(@game.id)
-      elsif params["Create"] == "Create Game"
-        redirect_to new_game_path
+      elsif params["Create"] == "Create Question"
+        redirect_to new_question_path
       end
-
     end
 
-     private
-
-     def game_params
-        params.require(:category).permit(:category_id)
-    end
 end
