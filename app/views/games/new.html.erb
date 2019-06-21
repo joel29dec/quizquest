@@ -1,3 +1,19 @@
 <!-- auto generate a game key, select 10 questions from 30 choices, then submit -->
 <img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
 <h2>Create a Game</h2>
+
+<%= form_for @question do |f| %>
+  <%= f.label :prompt %>
+  <%= f.text_field :prompt %>
+  <%= f.label :correct_answer %>
+  <%= f.text_field :correct_answer %>
+  <%= f.fields_for :incorrect_answers do |answer|%>
+    <%= answer.label :answer_1 %>
+    <%= answer.text_field :answer_1 %><br>
+    <%= answer.label :answer_2 %>
+    <%= answer.text_field :answer_2 %><br>
+    <%= answer.label :answer_3 %>
+    <%= answer.text_field :answer_3 %><br>
+  <%end %>
+  <%= f.submit "Submit Question" %>
+<% end %>

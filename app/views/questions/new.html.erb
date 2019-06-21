@@ -1,0 +1,27 @@
+<h2>Create a new Question</h2>
+
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @question do |f| %>
+  <%= f.label :prompt %>
+  <%= f.text_field :prompt %><br>
+  <%= f.label :correct_answer %>
+  <%= f.text_field :correct_answer %><br>
+  <%= f.fields_for :incorrect_answers do |answer|%>
+    <%= answer.label :incorrect_1 %>
+    <%= answer.text_field :incorrect_1 %><br>
+    <%= answer.label :incorrect_2 %>
+    <%= answer.text_field :incorrect_2 %><br>
+    <%= answer.label :incorrect_3 %>
+    <%= answer.text_field :incorrect_3 %><br><br>
+  <%end %>
+  <%= f.submit "Submit Question" %>
+
+  <%= link_to "Cancel", games_path %>
+<% end %>
