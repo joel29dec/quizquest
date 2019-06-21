@@ -1,5 +1,5 @@
 <img src="https://files.slack.com/files-pri/T02MD9XTF-FKTMEG33R/qq_logo_v2-01.png">
-<h2>logged on as <%= @current_user.try(:username) %></h2>
+<h2>Hi there <%= @current_user.try(:username).capitalize %>!</h2>
 
 <p>Your score is <%= @current_user.score %></p>
 
@@ -8,4 +8,11 @@
   <%= button_to "Logout", "/byebye", method: :delete %>
 <% else %>
   <%= button_to "Login", "/login", method: :get %>
+<% end %>
+
+<h2> Highscores </h2>
+<% @highscores.each do |highscore| %>
+<p><%= highscore.first %>
+<%= highscore.last %>
+</p>
 <% end %>
