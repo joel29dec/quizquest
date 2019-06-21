@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @current_user = User.find_by(id: session[:user_id])
+    @highscores = User.all[0..4].sort {|a, b| b.score <=> a.score }.map{ |user| [user.username, user.score] }
   end
 
   private

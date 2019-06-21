@@ -74,7 +74,6 @@ Question.create(category_id: 1, prompt: "When were Israelites required to free t
 Question.create(category_id: 1, prompt: "Who climbed a sycamore tree in order to see Jesus as he entered Jericho?", correct_answer: "Zacchaues", incorrect_answers: ["Nebuchadnezzar", "Nicodemus", "Zerrubbabel"])
 Question.create(category_id: 1, prompt: "Who was chosen to replace Judas as the twelfth apostle?", correct_answer: "Matthias", incorrect_answers: ["Paul", "Andrew", "Bartholomew"])
 Question.create(category_id: 1, prompt: "Who did Peter raise from the dead in Joppa?", correct_answer: "Dorcas", incorrect_answers: ["Lazarus", "Ananias", "Martha"])
-Question.create(category_id: 1, prompt: "What two men in the Bible never died?", correct_answer: "Enoch & Elijah", incorrect_answers: ["Paul & Noah", "Jesus & Lazarus", "Methiselah & Elisha"])
 Question.create(category_id: 1, prompt: "Who built the first city?", correct_answer: "Cain", incorrect_answers: ["Enoch", "Abraham", "Adam"])
 Question.create(category_id: 1, prompt: "How many times did Noah send out a dove from the ark?", correct_answer: "1 Time", incorrect_answers: ["2 Times", "3 Times", "He Never Sent A Dove"])
 Question.create(category_id: 1, prompt: "Which of the following countries is only bordered by one country?", correct_answer: "Lesotho", incorrect_answers: ["El Salvador", "Togo", "Mongolia"])
